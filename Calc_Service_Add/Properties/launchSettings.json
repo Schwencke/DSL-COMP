@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Calc_Service_Add": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

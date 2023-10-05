@@ -1,0 +1,49 @@
+﻿@page
+@model CalculatorFrontend.Pages.IndexModel
+
+<h1>Calculator Service Frontend</h1>
+
+<form method="post" asp-antiforgery="false">
+    <input type="number" asp-for="val1" required />
+    <select asp-for="Operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+    </select>
+    <input type="number" asp-for="val2" required />
+    <button type="submit" value="Calculate">Calculate</button>
+</form>
+
+@if (ViewData["CalculationResult"] != null)
+{
+    <H2>@ViewData["CalculationResult"]</H2>
+}
+
+<h2>History:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>GUID</th>
+            <th>Operation</th>
+            <th>Value1</th>
+            <th>Value2</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.HistoryItems != null)
+        {
+
+            @foreach (var item in Model.HistoryItems)
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.operation</td>
+                    <td>@item.val1</td>
+                    <td>@item.val2</td>
+                    <td>@item.result</td>
+                </tr>
+            }
+        }
+       
+    </tbody>
+</table>
